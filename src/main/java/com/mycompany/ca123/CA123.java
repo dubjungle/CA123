@@ -25,6 +25,7 @@ public class CA123 {
         try {
             Scanner br = new Scanner(new FileReader("Students123.txt"));
             
+            String workload = null;
             
             String firstName;
 
@@ -62,7 +63,35 @@ public class CA123 {
                     
                     
                         if   (numberOfClasses >= 1 && numberOfClasses <=8){
-                            System.out.println(numberOfClasses);}
+                            switch (numberOfClasses) {
+                            case 1:
+                                workload = "Very Light";
+                                break;
+                            case 2:
+                                workload = "Light";
+                                break;
+                            case 3:
+                                workload = "Part Time";
+                                break;
+                            case 4:
+                                workload = "Part Time";
+                                break;
+                            case 5:
+                                workload = "Part Time";
+                                break;
+                            case 6:
+                                workload = "Full Time";
+                                break;
+                            case 7:
+                                workload = "Full Time";
+                                break;
+                            case 8:
+                                workload = "Full Time";
+                                
+                        }
+                            System.out.println(workload);
+                            
+                        }
    
                    else {
                        System.out.println("Error: must be between 1-8 ");}
@@ -82,6 +111,7 @@ public class CA123 {
                         PrintWriter statusPrint = new PrintWriter (statusFile);
                         
                        statusFile.write(studentNumber + " - " + lastName);
+                       statusFile.write("\n" + workload);
                       
                     
                         
