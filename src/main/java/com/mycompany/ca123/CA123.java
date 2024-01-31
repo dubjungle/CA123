@@ -23,8 +23,11 @@ public class CA123 {
      */
     public static void main(String args[]) {
         try {
-            Scanner br = new Scanner(new FileReader("Students123.txt"));
-            
+            Scanner sc = new Scanner(new FileReader("Students123.txt"));
+             FileWriter statusFile = new FileWriter("stats.txt");
+             PrintWriter statusPrint = new PrintWriter (statusFile);
+             
+             
             String workload = null;
             
             String firstName;
@@ -37,10 +40,10 @@ public class CA123 {
             
             String[] eachLine = new String[3];
             
-            for (int i = 1; br.hasNextLine(); i++) {
+            for (int i = 1; sc.hasNextLine(); i++) {
                
                 for (int j = 0; j <= 2; j++) {
-                eachLine[j] = br.nextLine();
+                eachLine[j] = sc.nextLine();
            
                     if(j==2){  
                     
@@ -56,14 +59,7 @@ public class CA123 {
 
                     System.out.println( firstName + " " + lastName);
                        
-                     
-                           if (firstName.matches(".*\\d.*")) {
-                        System.out.println("Error: First name can only contain letters.");
-                    }
-                    
-                    
-                        if   (numberOfClasses >= 1 && numberOfClasses <=8){
-                            switch (numberOfClasses) {
+                       switch (numberOfClasses) {
                             case 1:
                                 workload = "Very Light";
                                 break;
@@ -89,12 +85,50 @@ public class CA123 {
                                 workload = "Full Time";
                                 
                         }
-                            System.out.println(workload);
-                            
-                        }
-   
-                   else {
-                       System.out.println("Error: must be between 1-8 ");}
+                     
+                        if (orgcurrency.matches("[0-9]+") || orgcurrency.length() !=3 ){
+                System.out.println("Error: must be 3 letters ");
+            }
+            else if (dest.matches("[0-9]+") || dest.length() !=3 || dest.equals(orgcurrency)) {
+
+                System.out.println("Error: it's supposed to have 3 letters and can't be the same "); // fix
+            }
+
+            else if (numberOfClasses < 1 && numberOfClasses > 8) {
+                System.out.println(" Error : It's have to be between 1 - 8 " );
+                
+                
+            }
+            else if (position1 == -1 ) {
+                System.out.println("Error: '-' Cannot be found ");
+            }
+            else if (amount.matches("[a-zA-Z]+")){
+                System.out.println(" Error: Must be number");
+            }
+
+            else if (!symb.contains("O") && (!symb.contains("R")) ){
+                System.out.println( "Error: must have O or R " );
+            }
+            else {  statusFile.write(studentNumber + " - " + lastName + "\n");
+                       statusFile.write(workload + "\n");
+            }
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                           if (firstName.matches(".*\\d.*")) {
+                        System.out.println("Error: First name can only contain letters.");
+                    }
+                    
+                    
+               
                         
                         
                      
@@ -107,18 +141,13 @@ public class CA123 {
                         }
                        
                         
-                        FileWriter statusFile = new FileWriter("stats.txt");
-                        PrintWriter statusPrint = new PrintWriter (statusFile);
-                        
-                       statusFile.write(studentNumber + " - " + lastName);
-                       statusFile.write("\n" + workload);
+                       
+                      
                       
                     
                         
                         
-                     statusPrint.close();
-                      statusFile.close();
-                        
+                
                     
                     
                         
@@ -132,8 +161,12 @@ public class CA123 {
                 }
         
             }
-    
-            } 
+               
+            }
+              statusPrint.close();
+              statusFile.close();
+                           
+            
         }
         catch (IOException e) {
             System.out.println(e);
