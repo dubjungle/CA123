@@ -28,12 +28,3 @@ Name Surname9
 Name111 Surname10
 6
 23AA3578
-Name Surname11"£$^%
-6
-23AA3578
-Name Surname12
-1
-23AA1357a8
-Name Surname13
-5
-23A7A3578

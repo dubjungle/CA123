@@ -9,7 +9,6 @@ package com.mycompany.ca123;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
@@ -25,7 +24,7 @@ public class CA123 {
         try {
             Scanner sc = new Scanner(new FileReader("Students123.txt"));
              FileWriter statusFile = new FileWriter("stats.txt");
-             PrintWriter statusPrint = new PrintWriter (statusFile);
+             
              
              
             String workload = null;
@@ -58,6 +57,10 @@ public class CA123 {
                     
 
                     System.out.println( firstName + " " + lastName);
+                        System.out.println(numberOfClasses);
+                       System.out.println(studentNumber);
+                       
+                       
                        
                        switch (numberOfClasses) {
                             case 1:
@@ -86,84 +89,44 @@ public class CA123 {
                                 
                         }
                      
-                        if (orgcurrency.matches("[0-9]+") || orgcurrency.length() !=3 ){
-                System.out.println("Error: must be 3 letters ");
+                        if (!firstName.matches("[a-zA-Z]+")) {
+                System.out.println("Error: first name must be only letters  ");
             }
-            else if (dest.matches("[0-9]+") || dest.length() !=3 || dest.equals(orgcurrency)) {
-
-                System.out.println("Error: it's supposed to have 3 letters and can't be the same "); // fix
+            else if (lastName.matches("^[A-Za-z]+ [A-Za-z0-9]+$")) {
+                System.out.println ("No symbols please ");
             }
 
-            else if (numberOfClasses < 1 && numberOfClasses > 8) {
-                System.out.println(" Error : It's have to be between 1 - 8 " );
+            else if (numberOfClasses < 1 || numberOfClasses > 8) {
+                System.out.println("Error: numbers of classes must be between 1 - 8" );
                 
-                
+          }
+            else if (studentNumber.length() < 6 ) {
+                System.out.println("error: it must to be 6 charathers");
             }
-            else if (position1 == -1 ) {
-                System.out.println("Error: '-' Cannot be found ");
-            }
-            else if (amount.matches("[a-zA-Z]+")){
-                System.out.println(" Error: Must be number");
-            }
-
-            else if (!symb.contains("O") && (!symb.contains("R")) ){
-                System.out.println( "Error: must have O or R " );
-            }
+            
+              else if (!studentNumber.matches("^\\d{2}[A-Za-z]{2,5}\\d+$")) {
+                  
+              System.out.println("Error: The first two characters must be numbers.");
+              
+                    // ^\\d{2}: The first two characters must be digits.
+                     //[A-Za-z]{2,5}: The next two to five characters must be letters (upper or lower case).
+                      //\\d+$: Everything after the last letter character must be digits.
+                        //                 
+              
+}
+            
+            
             else {  statusFile.write(studentNumber + " - " + lastName + "\n");
                        statusFile.write(workload + "\n");
             }
                        
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                       
-                           if (firstName.matches(".*\\d.*")) {
-                        System.out.println("Error: First name can only contain letters.");
-                    }
-                    
-                    
-               
-                        
-                        
-                     
-                        if(studentNumber.matches("\\d{2}[A-Za-z]{3}\\d*")){
-                            
-                            System.out.println(studentNumber);}
-                        
-                        else {System.out.println("Invalid student format:");
-                            
-                        }
-                       
-                        
-                       
-                      
-                      
-                    
-                        
-                        
-                
-                    
-                    
-                        
-//                    if (firstName.matches(".*\\d.*")) {
-//                System.out.println("Error: First name can only contain letters.");
-//            }
-//                     if (numberOfClasses >= 1 && numberOfClasses <= 8)  {
-//                        System.out.println("Error: Number of classes supposed to be between 1-8");}
-//                    
-//            
+              
                 }
         
             }
                
             }
-              statusPrint.close();
+
               statusFile.close();
                            
             

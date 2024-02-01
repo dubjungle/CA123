@@ -1,14 +1,10 @@
 22DIP1123 - Weiss1
-Part Time20MSC1914 - Rodgers2
-Full Time20SSS123456 - Javol3
-Full Time23t12312 - Nosurname4
-Light20MSC19 - Surname5
-Full Time19AA1578 - Surname6
-Very Light23AA3578 - Surname7
-Part Time23AA2 - Surname8
-Full Time2AAA13578 - Surname9
-Part Time23AA3578 - Surname10
-Full Time23AA3578 - Surname11"£$^%
-Full Time23AA1357a8 - Surname12
-Very Light23A7A3578 - Surname13
+Part Time
+20MSC1914 - Rodgers2
+Full Time
+20MSC19 - Surname5
+Full Time
+19AA1578 - Surname6
+Very Light
+23AA3578 - Surname7
 Part Time
