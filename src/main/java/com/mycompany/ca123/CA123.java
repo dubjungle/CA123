@@ -20,9 +20,9 @@ public class CA123 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]){
         try {
-            Scanner sc = new Scanner(new FileReader("Students123.txt"));
+            Scanner sc = new Scanner(new FileReader("Students.txt"));
              FileWriter statusFile = new FileWriter("stats.txt");
              
              
@@ -108,12 +108,9 @@ public class CA123 {
                   
               System.out.println("Error: The first two characters must be numbers.");
               
-                    // ^\\d{2}: The first two characters must be digits.
-                     //[A-Za-z]{2,5}: The next two to five characters must be letters (upper or lower case).
-                      //\\d+$: Everything after the last letter character must be digits.
-                        //                 
+                                
               
-}
+               }
             
             
             else {  statusFile.write(studentNumber + " - " + lastName + "\n");
