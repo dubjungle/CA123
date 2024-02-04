@@ -5,7 +5,7 @@
  */
 package com.mycompany.ca123;
 
-
+// https://github.com/dubjungle/CA123.git
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,7 +24,7 @@ public class CA123 {
     
     public static void main(String args[]){
         try { //  FileReader reading text from the students.txt file
-              // FileWriter writing data wich one is correct. For this project.  
+              // FileWriter writing data wich one is correct to the file stats.txt for this project.  
             Scanner sc = new Scanner(new FileReader("Students.txt"));
              FileWriter statusFile = new FileWriter("stats.txt");
              
@@ -115,26 +115,41 @@ public class CA123 {
             }
             else if (lastName.matches("^[A-Za-z]+ [A-Za-z0-9]+$")) {
                 System.out.println ("No symbols please ");
+                 // The regular expression "^[A-Za-z]+ [A-Za-z0-9]+$" expects the last name to:
+                 // Start with one or more letters.
+                 // Followed by a space.
+                 // End with one or more letters or numbers.
             }
 
             else if (numberOfClasses < 1 || numberOfClasses > 8) {
                 System.out.println("Error: numbers of classes must be between 1 - 8" );
+                //Check or NumberOf classes is less than 1 or greater than 8
+                // If not getting error "Error: numbers of classes must be between 1 - 8" 
                 
           }
             else if (studentNumber.length() < 6 ) {
                 System.out.println("error: it must to be 6 charathers");
             }
+            // Check or the lenght of studentNumber is less than 6 characthers.
+            // Print an error message indicating that the student number must be 6 characters long.
+
             
               else if (!studentNumber.matches("^\\d{2}[A-Za-z]{2,5}\\d+$")) {
                   
               System.out.println("Error: The first two characters must be numbers.");
-              
-                                
+              // Check if the 'studentNumber' does not match a specific pattern using a regular expression.
+              // The regular expression "^\\d{2}[A-Za-z]{2,5}\\d+$" enforces the following pattern:
+              // - Starts with two digits.
+              // - Followed by 2 to 5 uppercase or lowercase letters.
+              // - Ends with one or more digits.
+                                 
               
                }
             
             
-            else {  statusFile.write(studentNumber + " - " + lastName + "\n");
+            else { // Write the student's number and last name to the 'statusFile' followed by a newline.
+ 
+                  statusFile.write(studentNumber + " - " + lastName + "\n");
                        statusFile.write(workload + "\n");
             }
                        
@@ -144,6 +159,7 @@ public class CA123 {
             }
                
             }
+              // Close the 'statusFile' to ensure that all buffered data is written to the file
 
               statusFile.close();
                            
